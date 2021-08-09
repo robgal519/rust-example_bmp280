@@ -90,6 +90,27 @@ fn main() -> ! {
             .draw(&mut display)
             .unwrap();
 
+            text.clear();
+            text.push_str("press ").unwrap();
+            let press_val: String<6> = String::from((_measurements.pressure / 100f32) as u32);
+            text.push_str(press_val.as_str()).unwrap();
+            text.push_str("hPa").unwrap();
+
+            Text::with_baseline(text.as_str(), Point::new(0, 16), text_style, Baseline::Top)
+            .draw(&mut display)
+            .unwrap();
+
+            text.clear();
+            text.push_str("humid ").unwrap();
+            let press_val: String<3> = String::from(_measurements.humidity  as u32);
+            text.push_str(press_val.as_str()).unwrap();
+            text.push_str("%").unwrap();
+
+            Text::with_baseline(text.as_str(), Point::new(0, 32), text_style, Baseline::Top)
+            .draw(&mut display)
+            .unwrap();
+        
+
             display.flush().unwrap();
 
         }
