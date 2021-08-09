@@ -1,0 +1,23 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cargo",
+			"subcommand": "build",
+			"problemMatcher": [
+				"$rustc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"label": "Rust: cargo build - blinky"
+		},
+		{
+			"type": "shell",
+			"command": [
+				"cargo", "flash", "--chip", "stm32f407vetx"
+			],
+			"label": "flash"
+		}
+}
